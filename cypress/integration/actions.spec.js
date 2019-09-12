@@ -19,4 +19,13 @@ describe('Action test', () => {
 		cy.get('#tried-test-cafe').click()
 		cy.get('@Slider').should('not.have.class', 'ui-state-disabled')
 	})
+
+	it('Should have empty value by default', () => {
+		cy.get('#comments').as('Textarea')
+
+		cy.get('#tried-test-cafe').click()
+		cy.get('@Textarea').should('have.value', '')
+		cy.get('@Textarea').type('New value')
+		cy.get('@Textarea').should('have.value', 'New value')
+	})
 })
