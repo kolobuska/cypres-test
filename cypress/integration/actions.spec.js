@@ -4,10 +4,7 @@ describe('Action test', () => {
 	})
 
 	it('Submit developer name', () => {
-		cy.get('#developer-name').type('First Last')
-		cy.get('#submit-button').scrollIntoView()
-		cy.get('#submit-button').click()
-
+		cy.submitDeveloper('First Last')
 		cy.get('.result-content').should('be.visible')
 		cy.url().should('include', 'thank-you')
 	})
